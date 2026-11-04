@@ -1,0 +1,65 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "raycast-dotfile-function-finder",
+  "title": "Dotfile Function Finder",
+  "description": "Search dotfile aliases, functions, and scripts by name or content, then copy or edit their source.",
+  "icon": "dotfile-finder-icon.png",
+  "author": "mikeoertli",
+  "platforms": [
+    "macOS"
+  ],
+  "categories": [
+    "Developer Tools"
+  ],
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "search-dotfiles",
+      "title": "Search Aliases, Functions and Scripts",
+      "subtitle": "Dotfile Function Finder",
+      "description": "Case-insensitive fuzzy or exact name search for aliases, functions, and scripts.",
+      "mode": "view"
+    }
+  ],
+  "tools": [],
+  "dependencies": {
+    "@raycast/api": "^2.10.1",
+    "@raycast/utils": "^2.2.7"
+  },
+  "devDependencies": {
+    "@raycast/eslint-config": "^2.2.0",
+    "@types/node": "26.6.5",
+    "@types/react": "19.3.0",
+    "eslint": "^10.13.0",
+    "prettier": "^3.9.10",
+    "typescript": "^6.0.3"
+  },
+  "scripts": {
+    "build": "ray build",
+    "dev": "ray develop",
+    "fix-lint": "ray lint --fix",
+    "lint": "ray lint",
+    "prepublishOnly": "echo \"\\n\\nIt seems like you are trying to publish the Raycast extension to npm.\\n\\nIf you did intend to publish it to npm, remove the \\`prepublishOnly\\` script and rerun \\`npm publish\\` again.\\nIf you wanted to publish it to the Raycast Store instead, use \\`npm run publish\\` instead.\\n\\n\" && exit 1",
+    "publish": "npx @raycast/api@latest publish",
+    "test": "tsc -p tsconfig.test.json && node --test .test-build/tests/*.test.js"
+  },
+  "preferences": [
+    {
+      "name": "paths",
+      "type": "textfield",
+      "required": true,
+      "title": "Dotfile Search Paths",
+      "description": "Files or folders separated by semicolons. Folders are searched recursively for shell files. Supports ~ and $HOME. Symlinks are indexed once; missing files are ignored.",
+      "default": "~/.alias; ~/.aliases; ~/.functions; ~/.zshrc; ~/.zshenv; ~/.zprofile; ~/.bashrc; ~/.bash_profile; ~/.profile"
+    },
+    {
+      "name": "scriptPaths",
+      "type": "textfield",
+      "required": false,
+      "title": "Script Search Directories",
+      "description": "Optional script folders separated by semicolons. Searches recursively for common script extensions and shebang files (including extensionless scripts). Names include the filename extension.",
+      "default": ""
+    }
+  ],
+  "version": "0.1.0"
+}

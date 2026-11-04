@@ -1,0 +1,5 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["tests/**/*.ts", "src/parser.ts", "src/indexer.ts", "src/editor.ts"],
+  "compilerOptions": { "rootDir": ".", "outDir": ".test-build", "noEmit": false }
+}
